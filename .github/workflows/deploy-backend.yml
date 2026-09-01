@@ -16,7 +16,7 @@ env:
   ECS_SERVICE: wanderlust-backend-task-service
   ECS_TASK_DEFINITION: wanderlust-backend-task
   CONTAINER_NAME: Main
-  AWS_ROLE_ARN: arn:aws:iam::244172007135:role/wanderlust-backend-github-actions-role
+  AWS_ROLE_ARN: arn:aws:iam::244172007135:role/wanderlust-ecs-backend-github-actions-role
 
 jobs:
   deploy:
