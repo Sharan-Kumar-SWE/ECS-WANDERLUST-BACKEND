@@ -1,0 +1,5 @@
+.env
+.env.sample
+Dockerfile*
+node_modules
+*.log

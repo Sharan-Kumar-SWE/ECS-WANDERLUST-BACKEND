@@ -1,0 +1,20 @@
+FROM node:20-alpine AS nodemodules
+
+WORKDIR /app
+
+COPY package*.json .
+
+RUN npm i
+
+FROM node:20-alpine AS run
+
+WORKDIR /app
+
+COPY --from=nodemodules /app/node_modules ./node_modules
+COPY  --from=nodemodules /app/package*.json /app/
+
+COPY . .
+
+EXPOSE 5000
+
+CMD ["npm", "run", "start"]

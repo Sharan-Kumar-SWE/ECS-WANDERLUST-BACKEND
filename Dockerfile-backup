@@ -1,0 +1,26 @@
+# Stage 1 
+
+FROM node:20 as backend-deps
+
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm i
+
+
+# Stage 2
+
+FROM node:20 as backend-dev
+
+WORKDIR /app
+
+COPY --from=backend-deps /app/node_modules ./node_modules
+
+COPY . .
+
+EXPOSE 5000
+
+CMD [ "npm","run","start"]
+
