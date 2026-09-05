@@ -30,7 +30,7 @@ async function startServer() {
 
     app.get('/health', (req, res) => {
       res.status(200).json({
-        status: 'healthy',
+        status: 'API is healthy',
         version: 'v2',
         timestamp: new Date().toISOString()
       });
