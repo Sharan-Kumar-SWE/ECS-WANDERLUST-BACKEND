@@ -28,21 +28,14 @@ async function startServer() {
   try {
     await connectDB();
 
-    // app.get('/health', (req, res) => {
-    //   res.status(200).json({
-    //     status: 'API is healthy',
-    //     version: 'v2',
-    //     timestamp: new Date().toISOString()
-    //   });
-    // });
-
     app.get('/health', (req, res) => {
-    res.status(500).json({
-        status: 'unhealthy',
-        reason: 'Intentional CI/CD failure test'
+      res.status(200).json({
+        status: 'API is healthy',
+        version: 'v2',
+        timestamp: new Date().toISOString()
+      });
     });
-});
-
+    
     app.listen(port, () => {
       console.log(`Server is running on port -- ${port}`);
     });
